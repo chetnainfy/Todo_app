@@ -31,7 +31,8 @@ def add():
     conn.close()
     return redirect(url_for('index')) # redirect to the home page after adding the task
 
-@app.route('/delete/<int:todo_id>') # sets up a URL like /delete1, etc.
+# sets up a URL like /delete1, etc.
+@app.route('/delete/<int:todo_id>') 
 def delete(todo_id):
     conn= get_db_connection()
     conn.execute('DELETE FROM todos WHERE id = ?',(todo_id)) # delete todo item with that id
